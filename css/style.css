@@ -1,0 +1,379 @@
+:root {
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #ff4d4d;
+    --flutter-blue: #0277bd;
+    --flutter-light-blue: #e0f7fa;
+    --flutter-gray: #eceff1;
+    --text-dark: #212529;
+    --text-light: #f8f9fa;
+    --background: #f8f9fa;
+    --card-bg: #ffffff;
+    --flutter-shadow: rgba(0, 0, 0, 0.08);
+    --flutter-elevation: rgba(0, 0, 0, 0.15);
+    --radius: 8px;
+    --shadow-light: 0 1px 4px var(--flutter-shadow);
+    --shadow-medium: 0 4px 12px var(--flutter-elevation);
+    --font: "Poppins", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background: var(--background);
+    font-family: var(--font);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    /* AJUSTE PARA O FOOTER FICAR NO FINAL: */
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0 15px;
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--text-dark);
+    margin: 3rem 0 1.5rem 0;
+}
+
+header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--flutter-gray);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.brand h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--flutter-blue);
+}
+
+.code-icon {
+    font-weight: 800;
+    color: var(--flutter-blue);
+}
+
+.main-nav a {
+    margin-left: 1.8rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--secondary);
+    transition: color 0.25s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: var(--primary);
+}
+
+.main-nav .active {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.welcome {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-medium);
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 3rem;
+    color: var(--flutter-blue);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.welcome h1::after {
+    content: "";
+    width: 100px;
+    height: 3px;
+    background: var(--primary);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.welcome p {
+    max-width: 800px;
+    margin: 0.8rem auto;
+}
+
+.welcome ul {
+    margin-top: 2rem;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.welcome ul li a {
+    display: block;
+    background: var(--flutter-light-blue);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    color: var(--text-dark);
+    border-left: 4px solid var(--flutter-blue);
+    box-shadow: var(--shadow-light);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome ul li a:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.server-content table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.server-content table th {
+    background: var(--flutter-blue);
+    color: var(--text-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.server-content table td {
+    padding: 20px;
+    border-bottom: 1px solid var(--flutter-gray);
+}
+
+.server-content table tr:nth-child(even) {
+    background-color: #fcfdff;
+}
+
+.server-content {
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+}
+
+.status-message {
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-message.loading {
+    color: var(--flutter-blue);
+}
+
+.status-message.error {
+    background: var(--danger);
+    color: var(--text-light);
+    box-shadow: var(--shadow-medium);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.status-message.loading::before {
+    content: "";
+    animation: spin 1.5s linear infinite;
+}
+
+.autores {
+    text-align: center;
+}
+
+.autores-grid {
+    display: flex;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 auto 3rem auto;
+}
+
+.autores-grid figure {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--flutter-gray);
+    box-shadow: var(--shadow-medium);
+    width: 100%;
+}
+
+.autores-grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 0.5rem;
+}
+
+.autores-grid figcaption {
+    padding-top: 0.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text-dark);
+}
+
+.form-section {
+    text-align: center;
+}
+
+.form-section input[type="radio"] {
+    display: none;
+}
+
+.form-section label {
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: 50px;
+    border: 2px solid var(--flutter-blue);
+    cursor: pointer;
+    background: var(--card-bg);
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+.form-section label:hover {
+    background: var(--flutter-light-blue);
+    color: var(--flutter-blue);
+}
+
+.form-section label:has(input:checked) {
+    background: var(--flutter-blue);
+    color: var(--text-light);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--flutter-blue);
+}
+
+.form-section button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background: var(--success);
+    color: var(--text-light);
+    border: none;
+    width: 250px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.form-section button:hover {
+    background: #1e7e34;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+.cards-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #f1f8e9;
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid #c8e6c9;
+    box-shadow: var(--shadow-light);
+}
+
+.card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--success);
+}
+
+ 
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--card-bg, #ffffff);
+    border-top: 1px solid var(--flutter-gray, #eee);
+    padding: 2rem 1rem;
+    color: var(--text-dark, #333);
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin: 1rem 0;
+    padding: 0;
+}
+
+.site-footer a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary, #6c757d);
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: var(--primary, #007bff);
+}
+
+.site-footer p {
+    margin: 0.5rem 0;
+}
+#conteudoServidor{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

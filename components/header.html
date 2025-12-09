@@ -1,0 +1,29 @@
+<header>
+    <div class="header-inner">
+        <div class="brand">
+            <span class="code-icon">&lt;/&gt;</span>
+            <h3>Projeto - Programação Web</h3>
+        </div>
+
+        <nav class="main-nav">
+            <a href="index.html" data-nav="index">Início</a>
+            <a href="sexo.html" data-nav="consulta">Consulta por Sexo</a>
+            <a href="busca.html" data-nav="geral">Busca do Servidor</a>
+            <a href="dev.html" data-nav="sobre">Responsavel</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href'); 
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+</script>
